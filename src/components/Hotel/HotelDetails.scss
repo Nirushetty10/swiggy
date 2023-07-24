@@ -1,0 +1,42 @@
+.hotel-details {
+    width: 100%;
+    height: 6rem;
+    margin-top: 3rem;
+    padding: 1rem 6rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed #707070;
+
+    .hotel_address {
+        width: 90%;
+        height: 100%;
+
+        h2 {
+            color: rgb(52, 51, 51);
+            font-size: 1.35rem;
+            margin: 0.2rem 0;
+        }
+        h4 {
+            color: rgb(90, 90, 90);
+            font-size: 0.8rem;
+            margin: 0.1rem 0;
+        }
+    }
+    .hotel_rating {
+        width: 10%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgb(5, 125, 5);
+        border: 1px solid rgb(176, 173, 173);
+        border-radius: 1rem;
+    }
+    
+}
+.food_details {
+    margin-top: 4rem;
+    padding: 1rem 6rem;
+    box-sizing: border-box;
+}

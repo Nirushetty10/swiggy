@@ -1,0 +1,42 @@
+.item-wrapper {
+    margin: 1rem 0;
+    width: 100%;
+    height: 10rem;
+    border-bottom: 1px solid rgb(150, 148, 148);
+    display: flex;
+    justify-content: space-between;
+
+    .section_left {
+        width: 80%;
+        padding-right: 3rem;
+
+        h2 {
+            font-size: 1.2rem;
+            color: rgb(95, 92, 92);
+            margin: 0.5rem 0;
+        }
+        h4 {
+            font-size: 0.8rem;
+            color: rgb(95, 92, 92);
+            margin: 0.5rem 0;
+        }
+        p {
+            font-size: 0.8rem;
+            color: rgb(95, 92, 92);
+            margin: 0.5rem 0;
+        }
+    }
+    .section_right {
+        width: 18%;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
