@@ -38,10 +38,8 @@ export default class HotelItem extends Component {
       })
   }
 
-
-
   render() {
-    const { id, food_name, price, desc, image } = this.props.data;
+    const { food_name, price, desc, image } = this.props.data;
 
     return (
       <div className="item-wrapper">

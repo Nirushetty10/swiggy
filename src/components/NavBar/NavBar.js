@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { alpha, makeStyles } from "@material-ui/core/styles";
+import { alpha } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -13,7 +13,6 @@ import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
-import MoreIcon from "@material-ui/icons/MoreVert";
 import { withStyles } from "@material-ui/core/styles";
 import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import { Link } from "react-router-dom";

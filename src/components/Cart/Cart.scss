@@ -1,7 +1,47 @@
 .cart-box {
     width: 100%;
     height: 30rem;
-    overflow-y: scroll;
     box-shadow: 0 0 8px 4px rgba(0,0,0,0.3);
     padding: 2rem 5rem;
+
+    .cart-items {
+        width: 100%;
+        height: 70%;
+        overflow-y: scroll;
+
+        .cart-empty {
+          margin: 3rem 5rem;
+          font-size: 1.3rem;
+        }
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+      }
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    .cart-total {
+        width: 100%;
+        height: 30%;
+
+        .cart-desc {
+            border-bottom: 1px solid rgb(131, 130, 130);
+        }
+
+        .item-total {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            margin-right: 2.5rem;
+        }
+        .cart-button {
+           margin: 1rem auto;
+        }
+    }
 }

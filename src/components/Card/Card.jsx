@@ -36,7 +36,7 @@ class CardBox extends Component {
  
   render() {
     const { classes } = this.props;
-    const {id,image,hotelName,rating,type,address} = this.props;
+    const {image,hotelName,rating,type,address} = this.props;
     return (
       <Card className={classes.root} onClick={this.handleClick}>
         <CardActionArea>

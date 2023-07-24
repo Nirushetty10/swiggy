@@ -657,24 +657,52 @@ class App extends Component {
   }
 
   addToCartHandler =(item)=> {
-    console.log(item.id);
-    const {cart, totalQuantity} = this.state;
+    const {cart, totalQuantity, totalPrice} = this.state;
     const existingItem = cart.find(cartItem => cartItem.id === item.id);
-    console.log(existingItem);
     if(existingItem) {
-      
-
-
-      
+       existingItem.quantity++;
+       existingItem.total += existingItem.price;
+       this.setState({
+        totalPrice : totalPrice + item.price
+      })
     } else {
       this.setState({
         cart : [item , ...cart],
-        totalQuantity : totalQuantity + 1
+        totalQuantity : totalQuantity + 1,
+        totalPrice : totalPrice + item.price
       })
-      console.log("item added successfully");
     }
-
   }
+
+  handleDecreaseQuantity =(id)=> {
+    const {cart, totalQuantity, totalPrice} = this.state;
+    const item = cart.find(value => value.id === id);
+    if(item.quantity === 1 ) {
+      const filteredState = cart.filter(item => item.id !== id);
+      this.setState({
+        cart : filteredState,
+        totalQuantity: totalQuantity-1,
+        totalPrice : totalPrice - item.price
+      });
+      return;
+    }
+    item.total -= item.price;
+    item.quantity--;
+    this.setState({
+      totalPrice : totalPrice - item.price 
+    })
+  }
+
+  handleIncreaseQuantity = (id) => {
+    const {cart, totalPrice} = this.state;
+    const item = cart.find(value => value.id === id);
+    item.total += item.price;
+    item.quantity++;
+    this.setState({
+      totalPrice : totalPrice + item.price 
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -687,7 +715,7 @@ class App extends Component {
                 path="/:id"
                 element={<HotelDetails data={this.state.data} handleAddToCart={this.addToCartHandler}/>}
               />
-              <Route path="/cart" element={<Cart data={this.state.cart}/>}/>
+              <Route path="/cart" element={<Cart data={this.state.cart} total={this.state.totalPrice} decreaseQuantity={this.handleDecreaseQuantity} increaseQuantity={this.handleIncreaseQuantity}/>}/>
             </Routes>
           </div>
         </div>

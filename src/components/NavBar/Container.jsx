@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 export default class Container extends Component {
   render() {
-    console.log(this.props.data);
     return (
       <>
         <h1>Restaurants with online food delivery in Bangalore</h1>
