@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CardBox from "../Card/Card";
 import { Link } from "react-router-dom";
+import "./Container.scss";
 
 export default class Container extends Component {
   render() {
