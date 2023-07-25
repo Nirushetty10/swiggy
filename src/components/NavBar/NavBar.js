@@ -186,7 +186,7 @@ class NavBar extends Component {
                 aria-label="show 17 new notifications"
                 color="inherit"
               >
-                <Badge badgeContent={0} color="secondary">
+                <Badge badgeContent={this.props.orderNotification} color="secondary">
                   <NotificationsIcon />
                 </Badge>
               </IconButton>

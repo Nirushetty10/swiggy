@@ -1,9 +1,10 @@
-import React from "react";
+import React , {useState} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { Button} from "@material-ui/core";
+import AddedToCartSnackbar from "../SnackBar/AddedToCart";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -43,11 +44,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function TransitionsModal(props) {
+  const [open, setOpen] = useState(false)
   const classes = useStyles();
 
   const handleClose = () => {
     props.modaleClose();
   };
+
+  const closeAddedCartNotification = ()=> {
+    setOpen(false);
+  }
 
   return (
     <div>
@@ -79,6 +85,7 @@ export default function TransitionsModal(props) {
           </div>
         </Fade>
       </Modal>
+      <AddedToCartSnackbar closeSnackBar={closeAddedCartNotification} open={open}/>
     </div>
   );
 }

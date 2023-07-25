@@ -16,7 +16,8 @@ export default class Cart extends Component {
       return;
     }
     this.setState({ open: true });
-
+    this.props.handleOrder();
+    this.props.handleNotification();
   };
 
   handleClose = (event, reason) => {
