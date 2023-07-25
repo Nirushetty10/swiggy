@@ -88,6 +88,11 @@ const styles = (theme) => ({
 });
 
 class NavBar extends Component {
+
+  setSearchValue = (e)=> {
+     this.props.searchValueHandler(e.target.value);
+  }
+
   render() {
     const { classes } = this.props;
     const renderMenu = (
@@ -167,12 +172,13 @@ class NavBar extends Component {
                 <SearchIcon />
               </div>
               <InputBase
-                placeholder="Search…"
+                placeholder="Search for hotel, type, location..."
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput,
                 }}
                 inputProps={{ "aria-label": "search" }}
+                onChange={(e) => this.setSearchValue(e)}
               />
             </div>
             <div className={classes.grow} />

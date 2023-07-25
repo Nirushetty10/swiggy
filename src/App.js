@@ -653,7 +653,8 @@ class App extends Component {
       cart : [],
       totalQuantity : 0,
       totalPrice : 0,
-      orderNotification : 0
+      orderNotification : 0,
+      searchValue : ""
     };
   }
 
@@ -719,14 +720,25 @@ class App extends Component {
     })
   }
 
+  setSearchValueHandler = (value)=> {
+    this.setState({
+      searchValue : value
+    })
+  }
+
   render() {
+    const {searchValue} = this.state;
+    const filteredData = this.state.data.filter(item => {
+       return (item.hotel_name.toLocaleLowerCase().includes(searchValue) || item.type.toLocaleLowerCase().includes(searchValue) || item.address.toLocaleLowerCase().includes(searchValue));
+    })
     return (
       <Router>
         <div className="page-layout">
-          <NavBar totalQuantity={this.state.totalQuantity} orderNotification={this.state.orderNotification}/>
+          <NavBar totalQuantity={this.state.totalQuantity} orderNotification={this.state.orderNotification} searchValueHandler={this.setSearchValueHandler}/>
           <div className="content-section">
             <Routes>
-              <Route path="/" element={<Container data={this.state.data} />} />
+              {searchValue.length === 0 && <Route path="/" element={<Container data={this.state.data} />} />}
+              {searchValue.length > 0 && <Route path="/" element={<Container data={filteredData} />} />}
               <Route
                 path="/:id"
                 element={<HotelDetails data={this.state.data} handleAddToCart={this.addToCartHandler}/>}
